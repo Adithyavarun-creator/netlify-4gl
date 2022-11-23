@@ -13,7 +13,6 @@ const Payment = () => {
   const selectedOption = (e) => {
     const selected = e.target.value;
     setSelect(selected);
-    setCheckSelect(true);
   };
 
   const paymentHandler = async (e) => {
@@ -22,6 +21,7 @@ const Payment = () => {
     if (!stripe || !elements) {
       return;
     }
+    //else
     const response = await fetch("/.netlify/functions/create-payment-intent", {
       method: "post",
       headers: {
@@ -29,15 +29,13 @@ const Payment = () => {
       },
       body: JSON.stringify({ amount: price * 100 }),
     }).then((res) => res.json());
-    //console.log(response);
+
+    // console.log(response);
     const {
       paymentIntent: { client_secret },
     } = response;
     console.log(client_secret);
-    const clientSecret = response.paymentIntent.client_secret;
-    //console.log(clientSecret);
-    //with clientsecret make the payment
-    const paymentResult = await stripe.confirmCardPayment(clientSecret, {
+    const paymentResult = await stripe.confirmCardPayment(client_secret, {
       payment_method: {
         card: elements.getElement(CardElement),
         billing_details: {
@@ -45,12 +43,12 @@ const Payment = () => {
         },
       },
     });
-
     if (paymentResult.error) {
-      alert(paymentResult.error);
+      alert("Please select box and enter price");
     } else {
       if (paymentResult.paymentIntent.status === "succeeded") {
-        alert("Payment success");
+        alert("Hooray 😊😊😊 !!! Payment successfull");
+        window.location.reload();
       }
     }
   };
@@ -97,23 +95,23 @@ const Payment = () => {
           </select>
         </div>
         {select && (
-          <div className="selectedOption">
-            <h2 className="selectedOptionQuantity">
-              <span className="selectedBox">{select}</span> was selected
-            </h2>
-          </div>
-        )}
-
-        {checkSelect && (
-          <div>
-            <input
-              type="number"
-              className="priceInput"
-              placeholder="Enter the price in € EUR"
-              value={price}
-              onChange={(e) => setPrice(e.target.value)}
-            />
-          </div>
+          <>
+            <div className="selectedOption">
+              <h2 className="selectedOptionQuantity">
+                <span className="selectedBox">{select}</span> was selected
+              </h2>
+            </div>
+            <h1>Enter the amount to be paid below in € EUR</h1>
+            <div>
+              <input
+                type="number"
+                className="priceInput"
+                placeholder="Enter the price in € EUR"
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+              />
+            </div>
+          </>
         )}
 
         <div className="card-box">
@@ -131,3 +129,55 @@ const Payment = () => {
 };
 
 export default Payment;
+
+/**
+  const paymentHandler = async (e) => {
+    e.preventDefault();
+
+    if (!stripe || !elements) {
+      return;
+    }
+    //console.log("hello");
+    const response = await fetch("/.netlify/functions/create-payment", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ amount: 90000 }),
+    }).then((res) => res.json());
+
+    console.log(response);
+
+    // setCheckSelect(true);
+    // const response = await fetch("/.netlify/functions/create-payment-intent", {
+    //   method: "post",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({ amount: price * 100 }),
+    // }).then((res) => res.json());
+    // const {
+    //   paymentIntent: { client_secret },
+    // } = response;
+    // console.log(client_secret);
+    // const clientSecret = response.paymentIntent.client_secret;
+    // //console.log(clientSecret);
+    // //with clientsecret make the payment
+    // const paymentResult = await stripe.confirmCardPayment(clientSecret, {
+    //   payment_method: {
+    //     card: elements.getElement(CardElement),
+    //     billing_details: {
+    //       name: `Paid for ${select}`,
+    //     },
+    //   },
+    // });
+
+    // if (paymentResult.error) {
+    //   alert(paymentResult.error);
+    // } else {
+    //   if (paymentResult.paymentIntent.status === "succeeded") {
+    //     alert("Payment success");
+    //   }
+    // }
+  };
+ */
