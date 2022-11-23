@@ -7,12 +7,14 @@ const Payment = () => {
   const [price, setPrice] = useState(0);
   const [select, setSelect] = useState("");
   const [checkSelect, setCheckSelect] = useState(false);
+  const [success, setSuccess] = useState("");
   const stripe = useStripe();
   const elements = useElements();
 
   const selectedOption = (e) => {
     const selected = e.target.value;
     setSelect(selected);
+    setCheckSelect(true);
   };
 
   const paymentHandler = async (e) => {
@@ -35,7 +37,7 @@ const Payment = () => {
       paymentIntent: { client_secret },
     } = response;
     console.log(client_secret);
-    const paymentResult = await stripe.confirmCardPayment(client_secret, {
+    const paymentResult = await stripe?.confirmCardPayment(client_secret, {
       payment_method: {
         card: elements.getElement(CardElement),
         billing_details: {
@@ -45,10 +47,12 @@ const Payment = () => {
     });
     if (paymentResult.error) {
       alert("Please select box and enter price");
+      setSuccess("Error in making transaction");
     } else {
       if (paymentResult.paymentIntent.status === "succeeded") {
-        alert("Hooray 😊😊😊 !!! Payment successfull");
-        window.location.reload();
+        setSuccess("Hooray 😊😊😊 !!! Payment successfull");
+        //alert(`Hooray 😊😊😊 !!! Payment successfull of `);
+        // window.location.reload();
       }
     }
   };
@@ -94,13 +98,17 @@ const Payment = () => {
             </option>
           </select>
         </div>
+
         {select && (
+          <div className="selectedOption">
+            <h2 className="selectedOptionQuantity">
+              <span className="selectedBox">{select}</span> was selected
+            </h2>
+          </div>
+        )}
+
+        {checkSelect && (
           <>
-            <div className="selectedOption">
-              <h2 className="selectedOptionQuantity">
-                <span className="selectedBox">{select}</span> was selected
-              </h2>
-            </div>
             <h1>Enter the amount to be paid below in € EUR</h1>
             <div>
               <input
@@ -113,6 +121,10 @@ const Payment = () => {
             </div>
           </>
         )}
+
+        <div className="successBox">
+          {success && <span className="successMessage">{success}</span>}
+        </div>
 
         <div className="card-box">
           <form onSubmit={paymentHandler}>

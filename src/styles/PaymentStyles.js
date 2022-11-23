@@ -103,4 +103,13 @@ export const PaymentContainer = styled.div`
       color: black;
     }
   }
+  .successBox{
+    margin-top: 25px;
+  }
+
+  .successMessage {
+    font-size: 28px;
+    color: yellow;
+    font-weight: bolder;
+  }
 `;
