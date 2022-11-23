@@ -77,6 +77,8 @@ export const PaymentContainer = styled.div`
     width: 100%;
     font-size: 28px;
     border: none;
+    border-radius: 15px;
+    offset: none;
   }
 
   .card-box {
