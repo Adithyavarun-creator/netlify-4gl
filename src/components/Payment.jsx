@@ -6,7 +6,6 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 const Payment = () => {
   const [price, setPrice] = useState(0);
   const [select, setSelect] = useState("");
-  const [checkSelect, setCheckSelect] = useState(false);
   const [success, setSuccess] = useState("");
   const stripe = useStripe();
   const elements = useElements();
@@ -14,7 +13,6 @@ const Payment = () => {
   const selectedOption = (e) => {
     const selected = e.target.value;
     setSelect(selected);
-    setCheckSelect(true);
   };
 
   const paymentHandler = async (e) => {
@@ -24,20 +22,21 @@ const Payment = () => {
       return;
     }
     //else
-    const response = await fetch("/.netlify/functions/create-payment-intent", {
+    const response = await fetch("/.netlify/functions/payment", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ amount: price }),
+      body: JSON.stringify({ amount: price * 100 }),
     }).then((res) => res.json());
 
-    // console.log(response);
+    //console.log(response);
+
     const {
       paymentIntent: { client_secret },
     } = response;
     console.log(client_secret);
-    const paymentResult = await stripe?.confirmCardPayment(client_secret, {
+    const paymentResult = await stripe.confirmCardPayment(client_secret, {
       payment_method: {
         card: elements.getElement(CardElement),
         billing_details: {
@@ -50,7 +49,7 @@ const Payment = () => {
       setSuccess("Error in making transaction");
     } else {
       if (paymentResult.paymentIntent.status === "succeeded") {
-        setSuccess("Hooray 😊😊😊 !!! Payment successfull");
+        setSuccess(`Hooray 😊😊😊 !!! Payment successfull with ${price}€`);
       }
     }
   };
@@ -105,31 +104,29 @@ const Payment = () => {
           </div>
         )}
 
-        {checkSelect && (
-          <>
-            <h1>Enter the amount to be paid below in € EUR</h1>
-            <div>
-              <input
-                type="number"
-                className="priceInput"
-                placeholder="Enter the price in € EUR"
-                value={price}
-                onChange={(e) => setPrice(e.target.value)}
-              />
-            </div>
-          </>
-        )}
+        <h1>Enter the amount to be paid below in € EUR</h1>
+        <div>
+          <input
+            type="number"
+            className="priceInput"
+            placeholder="Enter the price in € EUR"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+          />
+        </div>
 
         <div className="successBox">
           {success && <span className="successMessage">{success}</span>}
         </div>
 
         <div className="card-box">
-          <form onSubmit={paymentHandler}>
+          <form>
             <h1>Credit card payment</h1>
             <CardElement />
             <div className="buttonPosition">
-              <button className="paymentButton">Pay Now</button>
+              <button className="paymentButton" onClick={paymentHandler}>
+                Pay Now
+              </button>
             </div>
           </form>
         </div>
