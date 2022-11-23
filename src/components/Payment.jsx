@@ -29,7 +29,7 @@ const Payment = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ amount: price * 100 }),
+      body: JSON.stringify({ amount: price }),
     }).then((res) => res.json());
 
     // console.log(response);
@@ -51,8 +51,6 @@ const Payment = () => {
     } else {
       if (paymentResult.paymentIntent.status === "succeeded") {
         setSuccess("Hooray 😊😊😊 !!! Payment successfull");
-        //alert(`Hooray 😊😊😊 !!! Payment successfull of `);
-        // window.location.reload();
       }
     }
   };
