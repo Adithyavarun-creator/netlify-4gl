@@ -4,6 +4,9 @@ import LogoImage from "../assets/washingmachine.png";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import Modal from "./Modal";
 import { useTranslation } from "react-i18next";
+import db from "../firebase/firebase";
+import { addDoc, collection, Timestamp } from "firebase/firestore";
+import Spinner from "./Spinner";
 
 const inputStyle = {
   iconColor: "#ff4500",
@@ -31,6 +34,7 @@ const Payment = () => {
   const [close, setClose] = useState(false);
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState("");
 
   const stripe = useStripe();
   const elements = useElements();
@@ -54,10 +58,7 @@ const Payment = () => {
         "Email/Box selection/Amount field is missing,Provide all details to make the payment"
       );
     }
-
-    // if (!stripe || !elements) {
-    //   return;
-    // }
+    setLoading("Loading...!!!!!!!!!!");
     const response = await fetch("/.netlify/functions/payment", {
       method: "post",
       headers: {
@@ -69,7 +70,7 @@ const Payment = () => {
     const {
       paymentIntent: { client_secret },
     } = response;
-    console.log(client_secret);
+    //console.log(client_secret);
     const paymentResult = await stripe.confirmCardPayment(client_secret, {
       payment_method: {
         card: elements.getElement(CardElement),
@@ -79,16 +80,51 @@ const Payment = () => {
       },
     });
     if (paymentResult.error) {
-      // setSuccess("Error in making transaction");
+      setSuccess(
+        "Email/Box selection/Amount field is missing,Provide all details to make the payment"
+      );
+      saveErrorPaymentToBackend();
       setClose(true);
-      // setSuccess("Error in making transaction, try after sometime");
-      console.log(paymentResult.error);
+      window.scrollTo(0, 0);
     } else {
       setClose(true);
       if (paymentResult.paymentIntent.status === "succeeded") {
+        savePaymentSuccessToBackend();
+        setLoading("");
         window.scrollTo(0, 0);
-        setSuccess(`Hooray 😊🥳 🎉 !!! Payment successfull  with ${click}€ for ${select} `);
+        setSuccess(
+          `Hooray 😊🥳 🎉 !!! Payment successfull  with ${click}€ for ${select} `
+        );
       }
+    }
+  };
+
+  const savePaymentSuccessToBackend = async () => {
+    try {
+      await addDoc(collection(db, "machinePaymentsSuccess"), {
+        email: email,
+        amountPaid: `${click}€`,
+        selectedBox: select,
+        paymentStatus: `success in paying ${click}€`,
+        createdAt: Timestamp.now(),
+      });
+    } catch (err) {
+      alert(err);
+      console.log(error);
+    }
+  };
+
+  const saveErrorPaymentToBackend = async () => {
+    try {
+      await addDoc(collection(db, "machinePaymentsError"), {
+        email: email ? email : "",
+        amountPaid: click ? `${click}€` : "",
+        selectedBox: select ? select : "",
+        paymentStatus: `Payment was incomplete`,
+        createdAt: Timestamp.now(),
+      });
+    } catch (err) {
+      console.log(error);
     }
   };
 
@@ -135,6 +171,9 @@ const Payment = () => {
               onChange={selectedOption}
               value={select}
             >
+              <option className="option" id="Select Box" value="Select Box">
+                Select Box
+              </option>
               <option className="option" id="Box 1" value="Box 1">
                 Box 1
               </option>
@@ -244,6 +283,11 @@ const Payment = () => {
                   Pay Now
                 </button>
               </div>
+              {loading && (
+                <div className="spinnerBox">
+                  <Spinner />
+                </div>
+              )}
             </form>
           </div>
         </div>

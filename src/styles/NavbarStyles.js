@@ -16,7 +16,8 @@ export const NavbarContainer = styled.nav`
     padding: 20px 20px;
   }
   @media ${devices.smallTabs} {
-    padding: 15px 15px;
+    /* padding: 15px 15px; */
+    padding: 22px 22px;
   }
 
   @media ${devices.smallMobiles} {
@@ -27,6 +28,7 @@ export const NavbarContainer = styled.nav`
     gap: 20px;
     background-color: limegreen;
   }
+
   .toLink {
     text-decoration: none;
     color: black;
@@ -58,6 +60,7 @@ export const NavbarContainer = styled.nav`
     font-size: 14px;
     background-color: black;
     color: white;
+    cursor: pointer;
 
     @media ${devices.bigLaptopsAndDesktops} {
       height: 40px;
@@ -69,7 +72,7 @@ export const NavbarContainer = styled.nav`
       height: 40px;
     }
     @media ${devices.smallTabs} {
-      height: 30px;
+      height: 40px;
     }
 
     @media ${devices.smallMobiles} {
@@ -78,18 +81,18 @@ export const NavbarContainer = styled.nav`
   }
 
   .langOption {
-    font-size: 14px;
+    font-size: 18px;
     font-weight: bold;
     color: white;
     @media ${devices.bigLaptopsAndDesktops} {
-      font-size: 14px;
+      font-size: 18px;
     }
 
     @media ${devices.tabletsAndIpads} {
       font-size: 16px;
     }
     @media ${devices.smallTabs} {
-      font-size: 16px;
+      font-size: 14px;
     }
 
     @media ${devices.smallMobiles} {

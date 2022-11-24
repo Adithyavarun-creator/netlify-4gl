@@ -27,10 +27,22 @@ const Navbar = () => {
       <div>
         <select className="langSelect" value={select} onChange={selectedOption}>
           <option className="langOption" id="en" value="en">
-            EN - English
+            English
           </option>
           <option className="langOption" id="es" value="es">
-            ES - Spanish
+            Spanish
+          </option>
+          <option className="langOption" id="de" value="de">
+            German
+          </option>
+          <option className="langOption" id="fr" value="fr">
+            French
+          </option>
+          <option className="langOption" id="it" value="it">
+            Italian
+          </option>
+          <option className="langOption" id="pt" value="pt">
+            Portugese
           </option>
         </select>
       </div>

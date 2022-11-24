@@ -8,7 +8,7 @@ export const ModalContainer = styled.div`
   position: absolute;
   gap: 60px;
   top: 160px;
-  height: 300px;
+  height: 350px;
   flex-direction: column;
   padding: 0 20px;
   border: 1px solid black;
@@ -18,7 +18,7 @@ export const ModalContainer = styled.div`
   @media ${devices.bigLaptopsAndDesktops} {
     gap: 50px;
     top: 160px;
-    height: 300px;
+    height: 350px;
     flex-direction: column;
     padding: 0 20px;
     border: 2px solid black;
@@ -26,11 +26,18 @@ export const ModalContainer = styled.div`
   }
 
   @media ${devices.tabletsAndIpads} {
+    gap: 50px;
+    top: 160px;
+    height: 390px;
+    flex-direction: column;
+    padding: 0 20px;
+    border: 2px solid black;
+    width: 70%;
   }
   @media ${devices.smallTabs} {
     gap: 20px;
     top: 100px;
-    height: 280px;
+    height: 350px;
     flex-direction: column;
     padding: 0 20px;
     border: 2px solid black;
@@ -38,7 +45,7 @@ export const ModalContainer = styled.div`
   }
 
   @media ${devices.smallMobiles} {
-    height: 250px;
+    height: 320px;
     top: 220px;
     border: 1px solid lime;
     gap: 20px;

@@ -345,4 +345,10 @@ export const PaymentContainer = styled.div`
       font-size: 20px;
     }
   }
+
+  .spinnerBox {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
 `;
