@@ -27,6 +27,10 @@ export const NavbarContainer = styled.nav`
     gap: 20px;
     background-color: limegreen;
   }
+  .toLink {
+    text-decoration: none;
+    color: black;
+  }
 
   li {
     list-style: none;
@@ -48,16 +52,17 @@ export const NavbarContainer = styled.nav`
 
   .langSelect {
     height: 50px;
-    padding: 5px 8px;
+    padding: 10px 8px;
     border-radius: 10px;
     outline: none;
-    font-size: 18px;
+    font-size: 14px;
     background-color: black;
     color: white;
 
     @media ${devices.bigLaptopsAndDesktops} {
-      height: 50px;
+      height: 40px;
       font-size: 18px;
+      padding: 5px 2px;
     }
 
     @media ${devices.tabletsAndIpads} {
@@ -73,11 +78,11 @@ export const NavbarContainer = styled.nav`
   }
 
   .langOption {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: bold;
     color: white;
     @media ${devices.bigLaptopsAndDesktops} {
-      font-size: 18px;
+      font-size: 14px;
     }
 
     @media ${devices.tabletsAndIpads} {

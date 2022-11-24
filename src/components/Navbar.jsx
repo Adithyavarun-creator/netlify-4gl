@@ -12,20 +12,15 @@ const Navbar = () => {
     return i18n.changeLanguage(selected);
   };
 
-  // const handleChangeLanguage = (lng) => {
-  //   return i18n.changeLanguage(lng);
-  //   localStorage.setItem("lng", lng);
-  // };
-
   return (
     <NavbarContainer>
       <div>
-        <Link to="/qr-code">
+        <Link to="/" className="toLink">
           <li>Home</li>
         </Link>
       </div>
       <div>
-        <Link to="/qr-code">
+        <Link to="/qr-code" className="toLink">
           <li>QrCode Page</li>
         </Link>
       </div>
