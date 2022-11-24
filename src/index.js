@@ -5,6 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Elements } from "@stripe/react-stripe-js";
 import { stripePromise } from "./stripe/stripe";
+import "./i18next/i18next";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

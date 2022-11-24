@@ -3,6 +3,7 @@ import { PaymentContainer } from "../styles/PaymentStyles";
 import LogoImage from "../assets/washingmachine.png";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import Modal from "./Modal";
+import { useTranslation } from "react-i18next";
 
 const inputStyle = {
   iconColor: "#ff4500",
@@ -17,6 +18,7 @@ const inputStyle = {
   },
   "::placeholder": {
     color: "#ff4500",
+    fontSize: "20px",
   },
 };
 
@@ -27,9 +29,13 @@ const Payment = () => {
   const [click, setClick] = useState(1);
   const [notSelected, setNotSelected] = useState(false);
   const [close, setClose] = useState(false);
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
 
   const stripe = useStripe();
   const elements = useElements();
+
+  const { t, i18n } = useTranslation();
 
   const selectedOption = (e) => {
     const selected = e.target.value;
@@ -43,14 +49,15 @@ const Payment = () => {
   const paymentHandler = async (e) => {
     e.preventDefault();
 
-    if (!select || !click) {
-      setSuccess("Select your box number and price to do the payment");
+    if (!email || !select || !click || !stripe || !elements) {
+      setSuccess(
+        "Email/Box selection/Amount field is missing,Provide all details to make the payment"
+      );
     }
 
-    if (!stripe || !elements) {
-      return;
-    }
-    //else
+    // if (!stripe || !elements) {
+    //   return;
+    // }
     const response = await fetch("/.netlify/functions/payment", {
       method: "post",
       headers: {
@@ -67,19 +74,20 @@ const Payment = () => {
       payment_method: {
         card: elements.getElement(CardElement),
         billing_details: {
-          name: `Paid for ${select}`,
+          name: `Paid by ${email} for ${select}`,
         },
       },
     });
     if (paymentResult.error) {
       // setSuccess("Error in making transaction");
+      setClose(true);
+      // setSuccess("Error in making transaction, try after sometime");
       console.log(paymentResult.error);
     } else {
       setClose(true);
       if (paymentResult.paymentIntent.status === "succeeded") {
-        setSuccess(
-          `Hooray 😊😊😊 !!! Payment successfull `
-        );
+        window.scrollTo(0, 0);
+        setSuccess(`Hooray 😊🥳 🎉 !!! Payment successfull  with ${click}€ for ${select} `);
       }
     }
   };
@@ -87,7 +95,7 @@ const Payment = () => {
   return (
     <>
       <PaymentContainer>
-        <div className="imageBox">
+        <div>
           <img src={LogoImage} alt="" className="logo-image" />
         </div>
 
@@ -97,7 +105,27 @@ const Payment = () => {
               <span className="numbers">#1</span>
             </div>
             <div className="stepName">
-              <h1 className="stepTitle">Select the Washing Machine you used</h1>
+              <h1 className="stepTitle">{t("email")}</h1>
+            </div>
+          </div>
+          <div className="inputBox">
+            <input
+              className="emailInput"
+              placeholder="johndoe@gmail.com"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+        </div>
+
+        <div className="workBox">
+          <div className="firstStep">
+            <div className="numbering">
+              <span className="numbers">#2</span>
+            </div>
+            <div className="stepName">
+              <h1 className="stepTitle">Select the Washing Machine</h1>
             </div>
           </div>
 
@@ -137,7 +165,7 @@ const Payment = () => {
         <div className="workBox">
           <div className="firstStep">
             <div className="numbering">
-              <span className="numbers">#2</span>
+              <span className="numbers">#3</span>
             </div>
             <div className="stepName">
               <h1 className="stepTitle">Click on the amount to pay in € EUR</h1>
@@ -185,13 +213,14 @@ const Payment = () => {
             close={close}
             click={click}
             setClose={setClose}
+            error={error}
           />
         )}
 
         <div className="workBox">
           <div className="firstStep">
             <div className="numbering">
-              <span className="numbers">#3</span>
+              <span className="numbers">#4</span>
             </div>
             <div className="stepName">
               <h1 className="stepTitle">Pay the amount via credit card</h1>
@@ -200,7 +229,9 @@ const Payment = () => {
 
           <div className="priceBox">
             <form>
-              <h1>Pay via Credit Card</h1>
+              <h1 style={{ color: "black" }} className="stepTitle">
+                Enter Card details below
+              </h1>
               <CardElement
                 options={{
                   style: {

@@ -1,14 +1,16 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import AmountPage from "./pages/AmountPage";
 import Homepage from "./pages/Homepage";
+import Navbar from "./components/Navbar";
+import QRCodePage from "./pages/QRCodePage";
 
 const App = () => {
   return (
     <BrowserRouter>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/amount-filled" element={<AmountPage />} />
+        <Route path="/qr-code" element={<QRCodePage />} />
       </Routes>
     </BrowserRouter>
   );
