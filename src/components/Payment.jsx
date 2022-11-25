@@ -8,6 +8,7 @@ import db from "../firebase/firebase";
 import { addDoc, collection, Timestamp } from "firebase/firestore";
 import Spinner from "./Spinner";
 
+
 const inputStyle = {
   iconColor: "#ff4500",
   color: "white",
@@ -20,7 +21,7 @@ const inputStyle = {
     color: "#fce883",
   },
   "::placeholder": {
-    color: "#1e8bff",
+    color: "#e50914",
     fontSize: "16px",
   },
 };
@@ -34,7 +35,7 @@ const Payment = () => {
   const [close, setClose] = useState(false);
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const stripe = useStripe();
   const elements = useElements();
@@ -54,11 +55,9 @@ const Payment = () => {
     e.preventDefault();
 
     if (!email || !select || !click || !stripe || !elements) {
-      setError(
-        "Email/Box selection/Amount field is missing,Provide all details to make the payment"
-      );
+      setError(`😡😡😡 ${t("errorMessage")}`);
     }
-    setLoading("");
+    setLoading(true);
     const response = await fetch("/.netlify/functions/payment", {
       method: "post",
       headers: {
@@ -80,20 +79,21 @@ const Payment = () => {
       },
     });
     if (paymentResult.error) {
-      // setSuccess(
-      //   "Email/Box selection/Amount field is missing,Provide all details to make the payment"
-      // );
       saveErrorPaymentToBackend();
       setClose(true);
+      setLoading(false)
+      setError(`😡😡😡 ${t("errorMessage")}`);
       window.scrollTo(0, 0);
     } else {
       setClose(true);
       if (paymentResult.paymentIntent.status === "succeeded") {
         savePaymentSuccessToBackend();
-        setLoading("");
+        setLoading(false);
         window.scrollTo(0, 0);
         setSuccess(
-          `Hooray 😊🥳 🎉 !!! Payment successfull  with ${click}€ for ${select} `
+          `😊🥳 🎉 !!! ${t("successMessage1")} ${click}€ ${t(
+            "successMessage2"
+          )} ${select}`
         );
       }
     }
@@ -252,11 +252,14 @@ const Payment = () => {
           <Modal
             success={success}
             close={close}
-            click={click}
             setClose={setClose}
             error={error}
+            select={select}
+            email={email}
+            click={click}
           />
         )}
+
 
         <div className="workBox">
           <div className="firstStep">

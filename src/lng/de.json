@@ -1,0 +1,22 @@
+{
+  "email": "Geben Sie Ihre E-Mail-Adresse an",
+  "home": "Startseite",
+  "qrcode": "QRCode-Seite",
+  "machineSelect": "Wählen Sie die Waschmaschine aus",
+  "payAmount": "Klicken Sie auf den zu zahlenden Betrag in € EUR",
+  "amountToPay": "Zu zahlender Betrag ist",
+  "payByCreditCard": "Zahlen Sie den Betrag per Kreditkarte",
+  "cardDetails": "Geben Sie unten die Kartendetails ein",
+  "wasSelected": "wurde ausgewählt",
+  "selectBox": "Wählen Sie ein Kästchen aus",
+  "box": "Kasten",
+  "payNow": "Zahlen Sie jetzt",
+  "qrPageTitle": "Generieren Sie Ihren eigenen QR, indem Sie einen Link eingeben und ihn herunterladen",
+  "qrpageArticle": "Ich habe gerade dieses npm i qrcode-Paket von npm gefunden, ich habe es im Projekt installiert und kann meinen eigenen QR-Code für den bereitgestellten Link generieren. Wenn ich also den Link ändere, ändert sich das Format des Codes und gibt Ihnen einen neuen QR-Code haben auch die Möglichkeit, es herunterzuladen. Meine Idee war, anstatt separate QR-Codes für jede Box zu haben, wird es definitiv Zeit brauchen, ein Zahlungsgateway und 4 Reaktionsprojekte (für jede Box1, Box2, Box3, Box4) für jede Box zu erstellen, und ich dachte, das ist eine zusätzliche Arbeit. Und nachdem Sie 4 Projekte für 4 Boxen erstellt haben, müssen Sie QR-Codes für 4 der Projektcodes erstellen. Also habe ich vorerst einen gemeinsamen QR-Code erstellt. Wenn Sie also scannen, werden Sie zum bereitgestellten Link weitergeleitet. Danach können Sie die Zahlung ausfüllen und abschließen. Nach der Zahlung werden die Zahlungsdetails wie Boxnummer, bezahlter Betrag, E-Mail, Erfolgsmeldung und Datum/Uhrzeit im Firebase-Backend und in Stripe gespeichert. Stripe ist nur ein Zahlungsgateway, React kann Backend mit Firebase kommunizieren, sodass alle eingegebenen Details dort in einer Sammlung mit dem Namen gespeichert werden ",
+  "generate": "QR-Code generieren",
+  "downloadasImage": "Download als Bilddatei",
+  "placeholdergeneratetag": "Geben Sie einen Link zum Generieren des QR-Codes an",
+  "errorMessage": "E-Mail/Box-Auswahl/Betragsfeld fehlt,Bitte geben Sie alle Details an, um die Zahlung vorzunehmen",
+  "successMessage1": "Zahlung von ",
+  "successMessage2": "wurde für gemacht "
+}

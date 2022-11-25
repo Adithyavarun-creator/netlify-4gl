@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { devices } from "../mediaQueries/breakpoints";
+import { Link, NavLink } from "react-router-dom";
 
 export const NavbarContainer = styled.nav`
   display: flex;
@@ -7,7 +8,7 @@ export const NavbarContainer = styled.nav`
   padding: 20px 20px;
   color: white;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.boxBackground};
+  background-color: ${({ theme }) => theme.colors.navbarBackground};
 
   @media ${devices.bigLaptopsAndDesktops} {
     padding: 22px 22px;
@@ -22,12 +23,6 @@ export const NavbarContainer = styled.nav`
   }
 
   @media ${devices.smallMobiles} {
-    /* padding: 20px 10px;
-    margin-bottom: 30px;
-    flex-direction: column;
-    justify-content: center;
-    gap: 20px;
-    background-color: limegreen; */
     display: none;
   }
 
@@ -53,6 +48,17 @@ export const NavbarContainer = styled.nav`
       color: black;
     }
   }
+
+  /* .linkTitle {
+    font-size: 20px;
+    padding: 5px 8px;
+
+    :hover {
+      background-color: ${({ theme }) => theme.colors.numbering};
+      border-radius: 20px;
+      color: white;
+    }
+  } */
 
   .langSelect {
     height: 50px;
@@ -182,5 +188,22 @@ export const MobileNavbar = styled.nav`
       font-weight: bold;
       color: white;
     }
+  }
+`;
+
+export const NavigationLink = styled(Link)`
+  color: black;
+  font-size: 24px;
+  text-decoration: none;
+  padding: 5px 8px;
+
+  &:hover,
+  &:focus {
+    background-color: ${({ theme }) => theme.colors.numbering};
+    color: white;
+    border-radius: 20px;
+  }
+  &:active {
+    color: white;
   }
 `;

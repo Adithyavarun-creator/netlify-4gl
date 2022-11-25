@@ -5,6 +5,7 @@ import reportWebVitals from "./reportWebVitals";
 import { Elements } from "@stripe/react-stripe-js";
 import { stripePromise } from "./stripe/stripe";
 import "./i18next/i18next";
+// import { PDFViewer } from "@react-pdf/renderer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

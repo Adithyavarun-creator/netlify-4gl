@@ -1,0 +1,22 @@
+{
+  "email": "Indiquez votre adresse e-mail",
+  "home": "Page d'accueil",
+  "qrcode": "Page QRCode",
+  "machineSelect": "Sélectionnez la machine à laver",
+  "payAmount": "Cliquez sur le montant à payer en € EUR",
+  "amountToPay": "Le montant à payer est",
+  "payByCreditCard": "Payer le montant par carte de crédit",
+  "cardDetails": "Entrez les détails de la carte ci-dessous",
+  "wasSelected": "a été choisi",
+  "selectBox": "Sélectionnez une case",
+  "box": "Boîte",
+  "payNow": "Payez maintenant",
+  "qrPageTitle": "Générez votre propre QR en entrant un lien et téléchargez-le",
+  "qrpageArticle": "Je viens de trouver ce package npm i qrcode de npm, je l'ai installé dans le projet et je peux générer mon propre code qr pour le lien fourni, donc chaque fois que je change le lien, le format du code change et donne un nouveau code QR, vous ont également une option pour le télécharger. Mon idée était qu'au lieu d'avoir des codes QR séparés pour chaque boîte, il faudrait certainement du temps pour créer une passerelle de paiement et 4 projets de réaction (pour chaque boîte1, boîte2, boîte3, boîte4) pour chaque boîte et j'ai pensé que c'était un travail supplémentaire. Et après avoir réalisé 4 projets pour 4 boîtes, vous devez créer des codes QR pour 4 des codes de projets. Donc, pour le moment, j'ai créé un code QR commun, donc lorsque vous numérisez, il vous redirigera vers le lien déployé, après quoi vous pourrez remplir et terminer le paiement. Après le paiement, les détails du paiement tels que le numéro de boîte, le montant payé, l'e-mail, le message de réussite et la date/heure sont enregistrés dans le backend Firebase et dans Stripe. Stripe n'est qu'une passerelle de paiement, React peut communiquer le backend avec Firebase, de sorte que tous les détails saisis sont enregistrés là-bas dans une collection nommée ",
+  "generate": "Générer un code QR",
+  "downloadasImage": "Télécharger en tant que fichier image",
+  "placeholdergeneratetag": "Fournir un lien pour générer le code QR",
+  "errorMessage": "Le champ de sélection d'e-mail/boîte/montant est manquant, veuillez fournir tous les détails pour effectuer le paiement",
+  "successMessage1": "Paiement de ",
+  "successMessage2": "a été fait pour "
+}

@@ -8,44 +8,44 @@ export const ModalContainer = styled.div`
   position: absolute;
   gap: 60px;
   top: 160px;
-  height: 350px;
+  height: 450px;
   flex-direction: column;
   padding: 0 20px;
-  border: 1px solid black;
+  border: 1px solid white;
   width: 70%;
   border-radius: 10px;
 
   @media ${devices.bigLaptopsAndDesktops} {
     gap: 50px;
     top: 160px;
-    height: 350px;
+    height: 450px;
     flex-direction: column;
     padding: 0 20px;
-    border: 2px solid black;
+    border: 2px solid white;
     width: 70%;
   }
 
   @media ${devices.tabletsAndIpads} {
     gap: 50px;
     top: 160px;
-    height: 390px;
+    height: 450px;
     flex-direction: column;
     padding: 0 20px;
-    border: 2px solid black;
+    border: 2px solid white;
     width: 70%;
   }
   @media ${devices.smallTabs} {
     gap: 20px;
     top: 100px;
-    height: 350px;
+    height: 380px;
     flex-direction: column;
     padding: 0 20px;
-    border: 2px solid black;
+    border: 2px solid white;
     width: 70%;
   }
 
   @media ${devices.smallMobiles} {
-    height: 320px;
+    height: 420px;
     top: 220px;
     border: 1px solid lime;
     gap: 20px;
@@ -110,14 +110,29 @@ export const ModalContainer = styled.div`
 
   .success {
     font-size: 27px;
-    color: #ff4500;
+    /* color: #ff4500; */
     text-align: center;
+    color: limegreen;
 
     @media ${devices.bigLaptopsAndDesktops} {
     }
 
     @media ${devices.tabletsAndIpads} {
     }
+    @media ${devices.smallTabs} {
+      font-size: 22px;
+    }
+
+    @media ${devices.smallMobiles} {
+      font-size: 18px;
+    }
+  }
+
+  .error {
+    font-size: 27px;
+    text-align: center;
+    color: yellow;
+
     @media ${devices.smallTabs} {
       font-size: 22px;
     }
@@ -155,10 +170,11 @@ export const ModalContainer = styled.div`
     align-items: center;
     background-color: white;
     color: black;
-    font-size: 18px;
+    font-size: 22px;
     border-radius: 20px;
     outline: none;
     cursor: pointer;
+    font-weight: bolder;
 
     @media ${devices.smallMobiles} {
       padding: 10px 22px;

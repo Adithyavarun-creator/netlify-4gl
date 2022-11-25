@@ -1,0 +1,22 @@
+{
+  "email": "Fornisci il tuo indirizzo email",
+  "home": "Pagina iniziale",
+  "qrcode": "Pagina QRCode",
+  "machineSelect": "Seleziona la lavatrice",
+  "payAmount": "Clicca sull'importo da pagare in € EUR",
+  "amountToPay": "L'importo da pagare è",
+  "payByCreditCard": "Paga l'importo tramite carta di credito",
+  "cardDetails": "Inserisci i dettagli della carta di seguito",
+  "wasSelected": "è stato selezionato",
+  "selectBox": "Seleziona una casella",
+  "box": "Scatola",
+  "payNow": "Paga ora",
+  "qrPageTitle": "Genera il tuo QR inserendo un link e scaricalo",
+  "qrpageArticle": "Ho appena trovato questo pacchetto qrcode npm i da npm, l'ho installato nel progetto e posso generare il mio codice QR per il collegamento fornito, quindi ogni volta che cambio il collegamento, il formato del codice cambia e fornisce un nuovo codice QR, tu hanno anche un'opzione per scaricarlo. La mia idea era invece di avere codici QR separati per ogni scatola, ci vorrà sicuramente del tempo per creare un gateway di pagamento e 4 progetti di reazione (per ogni scatola1, scatola2, scatola3, scatola4) per ogni scatola e ho pensato che fosse un lavoro extra. E dopo aver realizzato 4 progetti per 4 scatole, devi creare i codici QR per 4 dei codici dei progetti. Quindi per il momento ho creato un codice QR comune, quindi quando esegui la scansione, ti reindirizzerà al collegamento distribuito, dopodiché potrai compilare e completare il pagamento. Dopo il pagamento, i dettagli del pagamento come il numero della casella, l'importo pagato, l'e-mail, il messaggio di successo e la data/ora vengono salvati nel backend di Firebase e in stripe. Stripe è solo un gateway di pagamento, react può comunicare back-end con Firebase, quindi tutti i dettagli inseriti vengono salvati laggiù in una raccolta denominata ",
+  "generate": "Genera codice QR",
+  "downloadasImage": "Scarica come file immagine",
+  "placeholdergeneratetag": "Fornire un collegamento per generare il codice QR",
+  "errorMessage": "Manca il campo Email/Casella di selezione/Importo,Si prega di fornire tutti i dettagli per effettuare il pagamento",
+  "successMessage1": "Pagamento di ",
+  "successMessage2": "è stato fatto per "
+}

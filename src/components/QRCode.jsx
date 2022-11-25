@@ -39,7 +39,7 @@ const QrCode = () => {
         <input
           className="qrInput"
           type="text"
-          placeholder="Provide a link to generate URL"
+          placeholder={t("placeholdergeneratetag")}
           value={url}
           onChange={(e) => setUrl(e.target.value)}
         />

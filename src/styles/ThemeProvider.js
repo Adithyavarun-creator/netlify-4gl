@@ -1,7 +1,9 @@
 export const theme = {
   colors: {
     numbering: "#e50914",
-    boxBackground: " #66cc33",
+    boxBackground: "#4DCCC6",
     selectedValue: "#ff4500",
+    navbarBackground: "#55D284",
+    imageBorder: "#FFFF00",
   },
 };

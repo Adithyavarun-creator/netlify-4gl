@@ -6,6 +6,7 @@ import QRCodePage from "./pages/QRCodePage";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./styles/ThemeProvider";
 import { GlobalStyles } from "./styles/GlobalStyles";
+import Invoice from "./components/Invoice";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Homepage />} />
             <Route path="/qr-code" element={<QRCodePage />} />
+            <Route path="/invoice" element={<Invoice />} />
           </Routes>
         </BrowserRouter>
       </ThemeProvider>

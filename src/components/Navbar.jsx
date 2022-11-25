@@ -1,7 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { NavbarContainer, MobileNavbar } from "../styles/NavbarStyles";
-import { Link } from "react-router-dom";
+import {
+  NavbarContainer,
+  MobileNavbar,
+  NavigationLink,
+} from "../styles/NavbarStyles";
+import { Link, NavLink } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdClose } from "react-icons/md";
 
@@ -22,14 +26,14 @@ const Navbar = () => {
     <>
       <NavbarContainer>
         <div>
-          <Link to="/" className="toLink">
-            <li>{t("home")}</li>
-          </Link>
+          <NavigationLink to="/" className="linkTitle">
+            {t("home")}
+          </NavigationLink>
         </div>
         <div>
-          <Link to="/qr-code" className="toLink">
-            <li>{t("qrcode")}</li>
-          </Link>
+          <NavigationLink to="/qr-code" className="linkTitle">
+            {t("qrcode")}
+          </NavigationLink>
         </div>
         <div>
           <select

@@ -1,0 +1,22 @@
+{
+  "email": "Forneça seu endereço de e-mail",
+  "home": "Pagina inicial",
+  "qrcode": "Página de QRCode",
+  "machineSelect": "Selecione a máquina de lavar",
+  "payAmount": "Clique no valor a pagar em € EUR",
+  "amountToPay": "O valor a pagar é",
+  "payByCreditCard": "Pague o valor no cartão de crédito",
+  "cardDetails": "Insira os detalhes do cartão abaixo",
+  "wasSelected": "foi selecionado",
+  "selectBox": "Selecione uma caixa",
+  "box": "Caixa",
+  "payNow": "Pague agora",
+  "qrPageTitle": "Gere seu próprio QR inserindo um link e faça o download",
+  "qrpageArticle": "Acabei de encontrar este pacote npm i qrcode do npm, instalei no projeto e posso gerar meu próprio qr code para o link fornecido, então sempre que eu altero o link, o formato do código muda e dá um novo QR code, você também tem uma opção para baixá-lo. Minha ideia era, em vez de ter códigos QR separados para cada caixa, definitivamente levaria tempo para criar um gateway de pagamento e 4 projetos de reação (para cada caixa1, caixa2, caixa3, caixa4) para cada caixa e pensei que seria um trabalho extra. E depois de fazer 4 projetos para 4 caixas, você precisa criar códigos QR para 4 dos códigos dos projetos. Então por enquanto fiz um QR code comum, então quando você escanear, ele vai te redirecionar para o link implantado, depois disso você pode preencher e finalizar o pagamento. Após o pagamento, os detalhes do pagamento, como número da caixa, valor pago, e-mail, mensagem de sucesso e data/hora, são salvos no back-end do firebase e no stripe. O Stripe é apenas um gateway de pagamento, o react pode se comunicar com o back-end do firebase, então todos os detalhes inseridos são salvos lá em uma coleção chamada ",
+  "generate": "Gerar código QR",
+  "downloadasImage": "Baixar como arquivo de imagem",
+  "placeholdergeneratetag": "Forneça um link para gerar o código QR",
+  "errorMessage": "Campo de e-mail/seleção de caixa/valor ausente, forneça todos os detalhes para efetuar o pagamento",
+  "successMessage1": "Pagamento de ",
+  "successMessage2": "foi feito para "
+}

@@ -36,25 +36,30 @@ export const PaymentContainer = styled.div`
     width: 130px;
     cursor: pointer;
     border-radius: 50%;
-    border: 2px solid ${({ theme }) => theme.colors.numbering};
+    margin-top: 30px;
+    border: 8px solid ${({ theme }) => theme.colors.imageBorder};
 
     @media ${devices.bigLaptopsAndDesktops} {
       height: 100px;
       width: 100px;
+      margin-top: 30px;
     }
 
     @media ${devices.tabletsAndIpads} {
       height: 80px;
       width: 80px;
+      margin-top: 20px;
     }
     @media ${devices.smallTabs} {
       height: 80px;
       width: 80px;
+      margin-top: 20px;
     }
 
     @media ${devices.smallMobiles} {
       height: 80px;
       width: 80px;
+      margin-top: 15px;
     }
   }
 
