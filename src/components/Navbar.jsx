@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { NavbarContainer, MobileNavbar } from "../styles/NavbarStyles";
 import { Link } from "react-router-dom";
@@ -8,12 +8,14 @@ import { MdClose } from "react-icons/md";
 const Navbar = () => {
   const { t, i18n } = useTranslation();
   const [toggle, setToggle] = useState(false);
-  const [select, setSelect] = useState("en");
+  const [select, setSelect] = useState("");
+  const [name, setName] = useState("");
 
   const selectedOption = (e) => {
-    const selected = e.target.value;
-    const translated = i18n.changeLanguage(selected);
-    setSelect(translated.value);
+    console.log(e.target.value);
+    const selected = i18n.changeLanguage(e.target.value);
+    setSelect(selected);
+    setToggle(false);
   };
 
   return (
@@ -32,25 +34,25 @@ const Navbar = () => {
         <div>
           <select
             className="langSelect"
-            value={select}
+            value={select.name}
             onChange={selectedOption}
           >
-            <option className="langOption" id="en" value="en">
+            <option className="langOption" id="English" value="en">
               English
             </option>
-            <option className="langOption" id="es" value="es">
+            <option className="langOption" id="Spainsh" value="es">
               Spanish
             </option>
-            <option className="langOption" id="de" value="de">
+            <option className="langOption" id="German" value="de">
               German
             </option>
-            <option className="langOption" id="fr" value="fr">
+            <option className="langOption" id="French" value="fr">
               French
             </option>
-            <option className="langOption" id="it" value="it">
+            <option className="langOption" id="Italian" value="it">
               Italian
             </option>
-            <option className="langOption" id="pt" value="pt">
+            <option className="langOption" id="Portugese" value="pt">
               Portugese
             </option>
           </select>
@@ -76,37 +78,41 @@ const Navbar = () => {
           <div className="mobileNavbox">
             <div>
               <Link to="/" className="toLink">
-                <span className="linkName">{t("home")}</span>
+                <span className="linkName" onClick={() => setToggle(false)}>
+                  {t("home")}
+                </span>
               </Link>
             </div>
 
             <div>
               <Link to="/qr-code" className="toLink">
-                <span className="linkName">{t("qrcode")}</span>
+                <span className="linkName" onClick={() => setToggle(false)}>
+                  {t("qrcode")}
+                </span>
               </Link>
             </div>
             <div>
               <select
                 className="langSelect"
-                value={select}
+                value={select.name}
                 onChange={selectedOption}
               >
-                <option className="langOption" id="en" value="en">
+                <option className="langOption" id="English" value="en">
                   English
                 </option>
-                <option className="langOption" id="es" value="es">
+                <option className="langOption" id="Spainsh" value="es">
                   Spanish
                 </option>
-                <option className="langOption" id="de" value="de">
+                <option className="langOption" id="German" value="de">
                   German
                 </option>
-                <option className="langOption" id="fr" value="fr">
+                <option className="langOption" id="French" value="fr">
                   French
                 </option>
-                <option className="langOption" id="it" value="it">
+                <option className="langOption" id="Italian" value="it">
                   Italian
                 </option>
-                <option className="langOption" id="pt" value="pt">
+                <option className="langOption" id="Portugese" value="pt">
                   Portugese
                 </option>
               </select>
