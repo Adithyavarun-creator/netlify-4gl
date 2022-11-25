@@ -1,20 +1,32 @@
 import i18next from "i18next";
 import { initReactI18next } from "react-i18next";
+import en from "../lng/en.json";
+import es from "../lng/es.json";
+// import de from "../lng/de.json";
+// import fr from "../lng/fr.json";
+// import it from "../lng/it.json";
+// import pt from "../lng/pt.json";
 
 i18next.use(initReactI18next).init({
   resources: {
     en: {
-      translation: {
-        hello: "hello",
-        email: "Provide your email address",
-      },
+      translation: en,
     },
     es: {
-      translation: {
-        hello: "Hola",
-        email: "Proporcione su dirección de correo electrónico",
-      },
+      translation: es,
     },
+    // de: {
+    //   translation: de,
+    // },
+    // fr: {
+    //   translation: fr,
+    // },
+    // it: {
+    //   translation: it,
+    // },
+    // pt: {
+    //   translation: pt,
+    // },
   },
   lng: localStorage.getItem("lng") || "en",
 });

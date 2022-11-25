@@ -1,0 +1,18 @@
+{
+  "email": "Proporcione su dirección de correo electrónico",
+  "home": "Hogar",
+  "qrcode": "Página de código QR",
+  "machineSelect": "Seleccione la Lavadora",
+  "payAmount": "Haga clic en la cantidad a pagar en € EUR",
+  "amountToPay": "Cantidad a pagar es",
+  "payByCreditCard": "Pagar el importe con tarjeta de crédito",
+  "cardDetails": "Ingrese los detalles de la tarjeta a continuación",
+  "wasSelected": "fue seleccionado",
+  "selectBox": "Seleccionar cuadro",
+  "box": "Cuadro",
+  "payNow": "Pagar ahora",
+  "qrPageTitle": "Genera tu propio QR introduciendo un enlace y descárgalo",
+  "qrpageArticle": "Acabo de encontrar este paquete npm i qrcode de npm, lo instalé en el proyecto y puedo generar mi propio código qr para el enlace provisto, así que cada vez que cambio el enlace, el formato del código cambia y da un nuevo código QR, también tienes la opción de descargarlo. mi idea fue en lugar de tener códigos QR separados para cada caja definitivamente Tómese el tiempo para crear una pasarela de pago y 4 proyectos de reacción (para cada caja1, caja2, caja3, caja4) para cada caja y pensé que era un extra trabajar. Y después de hacer 4 proyectos para 4 cajas, necesitas crear QR códigos para 4 de los códigos de proyectos. Así que por el momento hice un común Código QR, por lo que cuando escanee, lo redirigirá al enlace implementado, después de eso, puede completar y completar el pago. Después del pago el detalles de pago como número de caja, cantidad pagada, correo electrónico, éxito el mensaje y la fecha/hora se guardan en el backend de firebase y en stripe. Stripe es solo una pasarela de pago, reaccionar puede comunicarse con backend firebase, por lo que todos los detalles ingresados se guardan allí en una colección nombrada",
+  "generate": "Generar",
+  "downloadasImage": "Descargar como imagen"
+}

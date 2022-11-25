@@ -1,0 +1,18 @@
+{
+  "email": "Provide your email address",
+  "home": "Home",
+  "qrcode": "QRCode Page",
+  "machineSelect": "Select the Washing Machine",
+  "payAmount": "Click on the amount to pay in € EUR",
+  "amountToPay": "Amount to pay is",
+  "payByCreditCard": "Pay the amount via credit card",
+  "cardDetails": "Enter Card details below",
+  "wasSelected": "was selected",
+  "selectBox": "Select a box",
+  "box": "box",
+  "payNow": "Pay Now",
+  "qrPageTitle": "Generate your own QR by entering a link and download it",
+  "qrpageArticle": " I just found this npm i qrcode package from npm, I installed it in the project and I can generate my own qr code for the provided link, so whenever I change the link, the format of code changes and gives a new QR code, you also have an option to download it. My idea was instead of having separate QR codes for each boxes will definitely take time to create a payment gateway and 4 react projects(for each box1, box2, box3, box4) for each boxes and I thought that'a an extra work. And after making 4 projects for 4 boxes , you need to create QR codes for 4 of the projects codes. So for time being I made a common QR code, so when you scan , it will redirect you to deployed link, after that you can fill and complete the payment. After payment the payment details such as box number, amount paid, email,succcess message and date/time is saved in firebase backend and in stripe. Stripe is just a payment gateway, react can communicate backend with firebase, so all entered details are saved over there in a collection named ",
+  "generate": "Generate",
+  "downloadasImage": "Download as image"
+}

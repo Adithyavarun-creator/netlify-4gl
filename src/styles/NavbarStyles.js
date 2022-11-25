@@ -7,6 +7,7 @@ export const NavbarContainer = styled.nav`
   padding: 20px 20px;
   color: white;
   align-items: center;
+  background-color: ${({ theme }) => theme.colors.boxBackground};
 
   @media ${devices.bigLaptopsAndDesktops} {
     padding: 22px 22px;
@@ -21,12 +22,13 @@ export const NavbarContainer = styled.nav`
   }
 
   @media ${devices.smallMobiles} {
-    padding: 20px 10px;
+    /* padding: 20px 10px;
     margin-bottom: 30px;
     flex-direction: column;
     justify-content: center;
     gap: 20px;
-    background-color: limegreen;
+    background-color: limegreen; */
+    display: none;
   }
 
   .toLink {
@@ -97,6 +99,88 @@ export const NavbarContainer = styled.nav`
 
     @media ${devices.smallMobiles} {
       font-size: 14px;
+    }
+  }
+`;
+
+export const MobileNavbar = styled.nav`
+  display: none;
+  @media ${devices.bigLaptopsAndDesktops} {
+    display: none;
+  }
+
+  @media ${devices.tabletsAndIpads} {
+    display: none;
+  }
+  @media ${devices.smallTabs} {
+    display: none;
+  }
+
+  @media ${devices.smallMobiles} {
+    display: flex;
+    justify-content: center;
+    padding: 10px 15px;
+    flex-direction: column;
+  }
+
+  .menuBox {
+    @media ${devices.smallMobiles} {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .toLink {
+    text-decoration: none;
+    color: black;
+  }
+
+  .menuIcon {
+    @media ${devices.smallMobiles} {
+      height: 40px;
+      width: 40px;
+      color: white;
+    }
+  }
+
+  .mobileNavbox {
+    @media ${devices.smallMobiles} {
+      background-color: ${({ theme }) => theme.colors.numbering};
+      display: flex;
+      width: 100%;
+      gap: 20px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 12px;
+      border-radius: 20px;
+    }
+  }
+
+  .linkName {
+    @media ${devices.smallMobiles} {
+      color: white;
+      font-size: 20px;
+    }
+  }
+
+  .langSelect {
+    @media ${devices.smallMobiles} {
+      height: 40px;
+      padding: 10px 8px;
+      border-radius: 10px;
+      outline: none;
+      font-size: 14px;
+      background-color: black;
+      cursor: pointer;
+      color: white;
+    }
+  }
+  .langOption {
+    @media ${devices.smallMobiles} {
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
     }
   }
 `;

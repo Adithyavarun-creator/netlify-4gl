@@ -9,7 +9,7 @@ export const size = {
   TabletsMobilesMin: "481px",
   TabletsMobilesMax: "767px",
   //mobile devices
-  SmallMobileMin: "320px",
+  SmallMobileMin: "280px",
   SmallMobileMax: "480px",
 };
 

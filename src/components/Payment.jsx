@@ -20,8 +20,8 @@ const inputStyle = {
     color: "#fce883",
   },
   "::placeholder": {
-    color: "#ff4500",
-    fontSize: "20px",
+    color: "#1e8bff",
+    fontSize: "16px",
   },
 };
 
@@ -54,11 +54,11 @@ const Payment = () => {
     e.preventDefault();
 
     if (!email || !select || !click || !stripe || !elements) {
-      setSuccess(
+      setError(
         "Email/Box selection/Amount field is missing,Provide all details to make the payment"
       );
     }
-    setLoading("Loading...!!!!!!!!!!");
+    setLoading("");
     const response = await fetch("/.netlify/functions/payment", {
       method: "post",
       headers: {
@@ -80,9 +80,9 @@ const Payment = () => {
       },
     });
     if (paymentResult.error) {
-      setSuccess(
-        "Email/Box selection/Amount field is missing,Provide all details to make the payment"
-      );
+      // setSuccess(
+      //   "Email/Box selection/Amount field is missing,Provide all details to make the payment"
+      // );
       saveErrorPaymentToBackend();
       setClose(true);
       window.scrollTo(0, 0);
@@ -110,7 +110,7 @@ const Payment = () => {
       });
     } catch (err) {
       alert(err);
-      console.log(error);
+      console.log(err);
     }
   };
 
@@ -124,7 +124,7 @@ const Payment = () => {
         createdAt: Timestamp.now(),
       });
     } catch (err) {
-      console.log(error);
+      console.log(err);
     }
   };
 
@@ -161,7 +161,7 @@ const Payment = () => {
               <span className="numbers">#2</span>
             </div>
             <div className="stepName">
-              <h1 className="stepTitle">Select the Washing Machine</h1>
+              <h1 className="stepTitle">{t("machineSelect")}</h1>
             </div>
           </div>
 
@@ -172,22 +172,22 @@ const Payment = () => {
               value={select}
             >
               <option className="option" id="Select Box" value="Select Box">
-                Select Box
+                {t("selectBox")}
               </option>
               <option className="option" id="Box 1" value="Box 1">
-                Box 1
+                {t("box")} 1
               </option>
               <option className="option" id="Box 2" value="Box 2">
-                Box 2
+                {t("box")} 2
               </option>
               <option className="option" id="Box 3" value="Box 3">
-                Box 3
+                {t("box")} 3
               </option>
               <option className="option" id="Box 4" value="Box 4">
-                Box 4
+                {t("box")} 4
               </option>
               <option className="option" id="Box 5" value="Box 5">
-                Box 5
+                {t("box")} 5
               </option>
             </select>
           </div>
@@ -195,7 +195,7 @@ const Payment = () => {
           {select && (
             <div className="selectedOption">
               <h2 className="selectedOptionQuantity">
-                <span className="selectedBox">{select}</span> was selected
+                <span className="selectedBox">{select}</span> {t("wasSelected")}
               </h2>
             </div>
           )}
@@ -207,7 +207,7 @@ const Payment = () => {
               <span className="numbers">#3</span>
             </div>
             <div className="stepName">
-              <h1 className="stepTitle">Click on the amount to pay in € EUR</h1>
+              <h1 className="stepTitle">{t("payAmount")}</h1>
             </div>
           </div>
 
@@ -241,7 +241,9 @@ const Payment = () => {
 
           <div>
             <h1 className="payableAmount">
-              Amount to pay is <span className="selectedAmount">{click}€</span>
+              {t("amountToPay")}
+
+              <span className="selectedAmount">{click}€</span>
             </h1>
           </div>
         </div>
@@ -262,14 +264,14 @@ const Payment = () => {
               <span className="numbers">#4</span>
             </div>
             <div className="stepName">
-              <h1 className="stepTitle">Pay the amount via credit card</h1>
+              <h1 className="stepTitle">{t("payByCreditCard")}</h1>
             </div>
           </div>
 
           <div className="priceBox">
             <form>
               <h1 style={{ color: "black" }} className="stepTitle">
-                Enter Card details below
+                {t("cardDetails")}
               </h1>
               <CardElement
                 options={{
@@ -280,7 +282,7 @@ const Payment = () => {
               />
               <div className="buttonPosition">
                 <button className="paymentButton" onClick={paymentHandler}>
-                  Pay Now
+                  {t("payNow")}
                 </button>
               </div>
               {loading && (

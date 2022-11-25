@@ -36,7 +36,7 @@ export const PaymentContainer = styled.div`
     width: 130px;
     cursor: pointer;
     border-radius: 50%;
-    border: 3px solid white;
+    border: 2px solid ${({ theme }) => theme.colors.numbering};
 
     @media ${devices.bigLaptopsAndDesktops} {
       height: 100px;
@@ -92,6 +92,7 @@ export const PaymentContainer = styled.div`
     border-radius: 20px;
     position: relative;
     cursor: pointer;
+    background-color: ${({ theme }) => theme.colors.boxBackground};
 
     :hover {
       -webkit-box-shadow: 2px 6px 32px 0px rgba(0, 0, 0, 0.75);
@@ -165,6 +166,8 @@ export const PaymentContainer = styled.div`
     border: 1px solid white;
     padding: 5px 26px;
     border-radius: 15px;
+    text-align: center;
+
     @media ${devices.smallMobiles} {
       padding: 5px 10px;
     }
@@ -174,6 +177,7 @@ export const PaymentContainer = styled.div`
     font-size: 24px;
     color: white;
     align-items: center;
+    text-align: center;
 
     @media ${devices.smallMobiles} {
       font-size: 18px;
@@ -182,7 +186,7 @@ export const PaymentContainer = styled.div`
   }
 
   .numbering {
-    background-color: #ff4500;
+    background-color: ${({ theme }) => theme.colors.numbering};
     display: flex;
     justify-content: center;
     border-radius: 25px;
@@ -209,7 +213,7 @@ export const PaymentContainer = styled.div`
   }
 
   .selectedAmount {
-    background-color: #ff4500;
+    background-color: ${({ theme }) => theme.colors.selectedValue};
     color: white;
     padding: 6px 8px;
     border-radius: 15px;
