@@ -8,7 +8,7 @@
 // } from "@react-pdf/renderer";
 
 import React from "react";
-import { Page, Text, Document, StyleSheet } from "@react-pdf/renderer";
+import { Page, Text, Document, StyleSheet } from "@react-18-pdf/renderer";
 
 const styles = StyleSheet.create({
   body: {

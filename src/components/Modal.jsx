@@ -1,7 +1,7 @@
 import React from "react";
 import { ModalContainer } from "../styles/ModalStyles";
 import Invoice from "./Invoice";
-import { PDFDownloadLink } from "@react-pdf/renderer";
+import { PDFDownloadLink } from "@react-18-pdf/renderer";
 
 const Modal = ({ success, setClose, error, email, select, click }) => {
   const closeModal = () => {
