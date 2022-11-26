@@ -7,7 +7,7 @@ export const InvoiceContainer = styled.div`
   .generatePdfButton {
     padding: 12px 26px;
     align-items: center;
-    background-color: ${({ theme }) => theme.colors.websiteBgColor};
+    background-color: ${({ theme }) => theme.colors.selectedValue};
     color: white;
     font-size: 22px;
     border-radius: 20px;

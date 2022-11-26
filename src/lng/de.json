@@ -19,6 +19,6 @@
   "errorMessage": "E-Mail/Box-Auswahl/Betragsfeld fehlt,Bitte geben Sie alle Details an, um die Zahlung vorzunehmen",
   "successMessage1": "Zahlung von ",
   "successMessage2": "wurde für gemacht ",
-  "generatePdf": "Rechnung für Ihre Zahlung erstellen",
+  "generatePdf": "Laden Sie die Rechnung für Ihre Zahlung herunter",
   "closeModal": "Nah dran"
 }

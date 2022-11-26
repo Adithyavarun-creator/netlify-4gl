@@ -27,7 +27,7 @@ const Invoice = ({ email, select, click }) => {
   return (
     <InvoiceContainer>
       <button className="generatePdfButton" onClick={generatePdf}>
-        {t("generatePdf")}
+        {t("downloadPdf")}
       </button>
     </InvoiceContainer>
   );

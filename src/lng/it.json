@@ -19,6 +19,6 @@
   "errorMessage": "Manca il campo Email/Casella di selezione/Importo,Si prega di fornire tutti i dettagli per effettuare il pagamento",
   "successMessage1": "Pagamento di ",
   "successMessage2": "è stato fatto per ",
-  "generatePdf": "Genera fattura per il tuo pagamento",
+  "downloadPdf": "Scarica la fattura per il tuo pagamento",
   "closeModal": "Chiudere"
 }

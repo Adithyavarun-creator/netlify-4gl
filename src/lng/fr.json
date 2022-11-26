@@ -19,7 +19,7 @@
   "errorMessage": "Le champ de sélection d'e-mail/boîte/montant est manquant, veuillez fournir tous les détails pour effectuer le paiement",
   "successMessage1": "Paiement de ",
   "successMessage2": "a été fait pour ",
-  "generatePdf":"Générer une facture pour votre paiement",
+  "downloadPdf": "Télécharger la facture pour votre paiement",
   "closeModal": "Proche"
 
 

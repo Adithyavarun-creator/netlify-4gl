@@ -19,6 +19,6 @@
   "errorMessage": "Falta el campo de correo electrónico/selección de casilla/cantidad, proporcione todos los detalles para realizar el pago",
   "successMessage1": "Pago de ",
   "successMessage2": "ha sido hecho para ",
-  "generatePdf":"Genera factura por tu pago"
-
+  "downloadPdf": "Descarga la factura de tu pago",
+  "closeModal": "Cerca"
 }

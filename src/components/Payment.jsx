@@ -20,7 +20,7 @@ const inputStyle = {
     color: "#fce883",
   },
   "::placeholder": {
-    color: "#e50914",
+    color: "#ff4500",
     fontSize: "16px",
   },
 };
