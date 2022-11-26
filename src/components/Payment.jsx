@@ -55,7 +55,7 @@ const Payment = () => {
     if (!email || !select || !click || !stripe || !elements) {
       setError(`😡😡😡 ${t("errorMessage")}`);
     }
-    setLoading(false);
+    setLoading(true);
     const response = await fetch("/.netlify/functions/create-payment-intent", {
       method: "post",
       headers: {
@@ -69,7 +69,7 @@ const Payment = () => {
     const {
       paymentIntent: { client_secret },
     } = response;
-    //console.log(client_secret);
+    console.log(client_secret);
     const paymentResult = await stripe.confirmCardPayment(client_secret, {
       payment_method: {
         card: elements.getElement(CardElement),
@@ -236,21 +236,23 @@ const Payment = () => {
             </button>
           </div>
 
-          <div>
+          {/* <div>
             <input
               type="number"
               className="priceInput"
               placeholder="Enter the price in € EUR"
               onChange={(e) => setClick(e.target.value)}
-              value={click}
+              // value={0 || click}
             />
-          </div>
+          </div> */}
 
           <div>
             <h1 className="payableAmount">
               {t("amountToPay")}
-
-              <span className="selectedAmount">{click}€</span>
+              {/* <span className="selectedAmount">{click}€</span> */}
+              <span className="selectedAmount">
+                {click ? `${click}€` : "0€"}
+              </span>
             </h1>
           </div>
         </div>
