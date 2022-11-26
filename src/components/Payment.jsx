@@ -26,7 +26,6 @@ const inputStyle = {
 };
 
 const Payment = () => {
-  const [price, setPrice] = useState(0);
   const [select, setSelect] = useState("");
   const [success, setSuccess] = useState("");
   const [click, setClick] = useState(1);
@@ -56,14 +55,16 @@ const Payment = () => {
     if (!email || !select || !click || !stripe || !elements) {
       setError(`😡😡😡 ${t("errorMessage")}`);
     }
-    setLoading(true);
-    const response = await fetch("/.netlify/functions/payment", {
+    setLoading(false);
+    const response = await fetch("/.netlify/functions/create-payment-intent", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ amount: click * 100 }),
-    }).then((res) => res.json());
+    }).then((res) => {
+      return res.json();
+    });
 
     const {
       paymentIntent: { client_secret },
@@ -82,6 +83,9 @@ const Payment = () => {
       setClose(true);
       setLoading(false);
       setError(`😡😡😡 ${t("errorMessage")}`);
+      setEmail("");
+      setClick("");
+      setSelect("");
       window.scrollTo(0, 0);
     } else {
       setClose(true);
@@ -94,8 +98,12 @@ const Payment = () => {
             "successMessage2"
           )} ${select}`
         );
+        setEmail("");
+        setClick("");
+        setSelect("");
       }
     }
+    setLoading(false);
   };
 
   const savePaymentSuccessToBackend = async () => {
@@ -233,7 +241,7 @@ const Payment = () => {
               type="number"
               className="priceInput"
               placeholder="Enter the price in € EUR"
-              onChange={(e) => setPrice(e.target.value)}
+              onChange={(e) => setClick(e.target.value)}
               value={click}
             />
           </div>

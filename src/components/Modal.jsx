@@ -10,6 +10,9 @@ const Modal = ({ success, setClose, error, email, select, click }) => {
   const closeModal = () => {
     setClose(false);
     window.location.reload();
+    /**
+     
+     */
   };
 
   return (

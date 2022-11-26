@@ -28,7 +28,7 @@ export const ModalContainer = styled.div`
   @media ${devices.tabletsAndIpads} {
     gap: 50px;
     top: 160px;
-    height: 450px;
+    height: 480px;
     flex-direction: column;
     padding: 0 20px;
     border: 2px solid white;
@@ -37,7 +37,7 @@ export const ModalContainer = styled.div`
   @media ${devices.smallTabs} {
     gap: 35px;
     top: 180px;
-    height: 400px;
+    height: 440px;
     flex-direction: column;
     padding: 0 20px;
     border: 2px solid white;
@@ -45,7 +45,7 @@ export const ModalContainer = styled.div`
   }
 
   @media ${devices.smallMobiles} {
-    height: 350px;
+    height: 380px;
     top: 220px;
     border: 5px solid white;
     gap: 40px;
