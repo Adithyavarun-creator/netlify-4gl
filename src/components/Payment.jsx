@@ -7,6 +7,8 @@ import { useTranslation } from "react-i18next";
 import db from "../firebase/firebase";
 import { addDoc, collection, Timestamp } from "firebase/firestore";
 import Spinner from "./Spinner";
+import useWindowSize from "react-use/lib/useWindowSize";
+import Confetti from "react-confetti";
 
 const inputStyle = {
   iconColor: "#ff4500",
@@ -37,6 +39,7 @@ const Payment = () => {
 
   const stripe = useStripe();
   const elements = useElements();
+  const { height, width } = useWindowSize();
 
   const { t } = useTranslation();
 
@@ -69,7 +72,7 @@ const Payment = () => {
     const {
       paymentIntent: { client_secret },
     } = response;
-    console.log(client_secret);
+    //console.log(client_secret);
     const paymentResult = await stripe.confirmCardPayment(client_secret, {
       payment_method: {
         card: elements.getElement(CardElement),
@@ -138,6 +141,7 @@ const Payment = () => {
   return (
     <>
       <PaymentContainer>
+        {success && <Confetti width={width} height={height} />}
         <div>
           <img src={LogoImage} alt="" className="logo-image" />
         </div>
