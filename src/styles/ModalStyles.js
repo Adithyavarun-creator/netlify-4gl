@@ -75,8 +75,9 @@ export const ModalContainer = styled.div`
   }
 
   .closeIcon {
-    color: white;
-    font-size: 40px;
+    color: ${({ theme }) => theme.colors.numbering};
+    font-size: 40px; 
+    
     @media ${devices.bigLaptopsAndDesktops} {
     }
 
@@ -168,8 +169,8 @@ export const ModalContainer = styled.div`
   .closeButton {
     padding: 12px 26px;
     align-items: center;
-    background-color: white;
-    color: black;
+    background-color: ${({ theme }) => theme.colors.numbering};
+    color: white;
     font-size: 22px;
     border-radius: 20px;
     outline: none;

@@ -1,78 +1,33 @@
-// import {
-//   Document,
-//   Page,
-//   Text,
-//   View,
-//   StyleSheet,
-//   PDFViewer,
-// } from "@react-pdf/renderer";
+import React from "react";
+import { jsPDF } from "jspdf";
+import { InvoiceContainer } from "../styles/InvoiceStyles";
 
-// import React from "react";
-// import { Page, Text, Document, StyleSheet } from "@react-18-pdf/renderer";
+const Invoice = ({ email, select, click }) => {
+  const generatePdf = () => {
+    const doc = new jsPDF();
 
-// const styles = StyleSheet.create({
-//   body: {
-//     padding: "20px 20px",
-//   },
-//   page: {
-//     backgroundColor: "white",
-//     color: "black",
-//     display: "flex",
-//     alignItems: "center",
-//   },
-//   section: {
-//     margin: 10,
-//     padding: 10,
-//     display: "flex",
-//     gap: "50px",
-//   },
-//   viewer: {
-//     width: window.innerWidth,
-//     height: window.innerHeight,
-//   },
-//   mainHeading: {
-//     fontSize: "33px",
-//     color: "red",
-//     alignItems: "center",
-//     textDecoration: "underline",
-//     textAlign: "center",
-//     marginBottom: "20px",
-//   },
-//   subHeading: {
-//     fontSize: "28px",
-//     color: "black",
-//     alignItems: "center",
-//     marginBottom: "20px",
-//   },
-//   thirdHeading: {
-//     fontSize: "19px",
-//     color: "black",
-//     textDecoration: "underline",
-//     fontWeight: "bold",
-//     marginBottom: "40px",
-//   },
-// });
+    doc.setFontSize(38);
+    doc.setTextColor(255, 0, 0);
+    doc.text(10, 20, "This is from 4GL");
+    doc.setFontSize(20);
+    doc.setTextColor(100);
+    doc.text(`This is for ${email}`, 10, 40);
+    doc.text("This is an invoice copy for your payment", 10, 50);
+    doc.text(`Box used : ${select} `, 10, 60);
+    doc.text(`Amount paid : ${click}€`, 10, 70);
+    doc.text("Thanks for using our service", 10, 80);
+    doc.text("This is digitally verified", 10, 90);
 
-// const Invoice = ({ email, select, click }) => {
-//   return (
-//     <Document>
-//       <Page style={styles.body}>
-//         <Text style={styles.mainHeading}>4GL Services</Text>
-//         <Text style={styles.subHeading}>
-//           Technological solutions for service stations
-//         </Text>
-//         <Text style={styles.thirdHeading}>Payment Reciept</Text>
-//         <Text style={styles.thirdHeading}>For user {email}</Text>
-//         <Text style={styles.thirdHeading}>Payment for {select}</Text>
-//         <Text style={styles.thirdHeading}>
-//           Amount received is {click}€
-//         </Text>{" "}
-//         <Text style={styles.thirdHeading}>
-//           This is completely verified by me
-//         </Text>
-//       </Page>
-//     </Document>
-//   );
-// };
+    doc.save("invoice.pdf");
+  };
 
-// export default Invoice;
+  return (
+    <InvoiceContainer>
+      <button className="generatePdfButton" onClick={generatePdf}>
+        Generate PDF
+      </button>
+    </InvoiceContainer>
+  );
+};
+
+export default Invoice;
