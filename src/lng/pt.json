@@ -18,5 +18,9 @@
   "placeholdergeneratetag": "Forneça um link para gerar o código QR",
   "errorMessage": "Campo de e-mail/seleção de caixa/valor ausente, forneça todos os detalhes para efetuar o pagamento",
   "successMessage1": "Pagamento de ",
-  "successMessage2": "foi feito para "
+  "successMessage2": "foi feito para ",
+  "generatePdf":"Gerar fatura para o seu pagamento",
+  "closeModal": "Perto"
+
+
 }

@@ -1,8 +1,12 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { ModalContainer } from "../styles/ModalStyles";
 import Invoice from "./Invoice";
+import { MdClose } from "react-icons/md";
 
 const Modal = ({ success, setClose, error, email, select, click }) => {
+  const { t, i18n } = useTranslation();
+
   const closeModal = () => {
     setClose(false);
     window.location.reload();
@@ -13,19 +17,19 @@ const Modal = ({ success, setClose, error, email, select, click }) => {
       {success && (
         <ModalContainer>
           <div className="closeBox">
-            <span className="closeIcon" onClick={closeModal}>
-              &#x2716;
-            </span>
+            <MdClose className="closeIcon" onClick={closeModal} />
           </div>
           <div className="successMessage">
             <h1 className="success">{success}</h1>
           </div>
 
-          <Invoice email={email} select={select} click={click} />
+          <div className="closeBtn">
+            <Invoice email={email} select={select} click={click} />
+          </div>
 
           <div className="closeBtn">
             <button onClick={closeModal} className="closeButton">
-              Close
+              {t("closeModal")}
             </button>
           </div>
         </ModalContainer>
@@ -53,3 +57,6 @@ const Modal = ({ success, setClose, error, email, select, click }) => {
 };
 
 export default Modal;
+
+/**              &#x2716;
+ */

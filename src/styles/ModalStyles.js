@@ -12,7 +12,7 @@ export const ModalContainer = styled.div`
   flex-direction: column;
   padding: 0 20px;
   border: 1px solid white;
-  width: 70%;
+  width: 40%;
   border-radius: 10px;
 
   @media ${devices.bigLaptopsAndDesktops} {
@@ -35,9 +35,9 @@ export const ModalContainer = styled.div`
     width: 70%;
   }
   @media ${devices.smallTabs} {
-    gap: 20px;
-    top: 100px;
-    height: 380px;
+    gap: 35px;
+    top: 180px;
+    height: 400px;
     flex-direction: column;
     padding: 0 20px;
     border: 2px solid white;
@@ -45,15 +45,16 @@ export const ModalContainer = styled.div`
   }
 
   @media ${devices.smallMobiles} {
-    height: 420px;
+    height: 350px;
     top: 220px;
-    border: 1px solid lime;
-    gap: 20px;
+    border: 5px solid white;
+    gap: 40px;
+    width: 90%;
   }
 
   .closeBox {
     background-color: black;
-    padding: 10px 20px;
+    padding: 5px 5px;
     display: flex;
     position: absolute;
     right: 0;
@@ -61,12 +62,14 @@ export const ModalContainer = styled.div`
     border-radius: 20px;
 
     @media ${devices.bigLaptopsAndDesktops} {
+      padding: 2px 2px;
     }
 
     @media ${devices.tabletsAndIpads} {
+      padding: 2px 2px;
     }
     @media ${devices.smallTabs} {
-      padding: 2px 10px;
+      padding: 2px 0;
     }
 
     @media ${devices.smallMobiles} {
@@ -76,19 +79,27 @@ export const ModalContainer = styled.div`
 
   .closeIcon {
     color: ${({ theme }) => theme.colors.numbering};
-    font-size: 40px; 
-    
+    /* font-size: 40px;  */
+    height: 80px;
+    width: 80px;
+
     @media ${devices.bigLaptopsAndDesktops} {
+      height: 65px;
+      width: 65px;
     }
 
     @media ${devices.tabletsAndIpads} {
+      height: 60px;
+      width: 60px;
     }
     @media ${devices.smallTabs} {
-      font-size: 28px;
+      height: 60px;
+      width: 60px;
     }
 
     @media ${devices.smallMobiles} {
-      font-size: 35px;
+      height: 50px;
+      width: 50px;
     }
   }
 
@@ -164,6 +175,7 @@ export const ModalContainer = styled.div`
   .closeBtn {
     display: flex;
     justify-content: center;
+    gap: 35px;
   }
 
   .closeButton {
@@ -176,6 +188,8 @@ export const ModalContainer = styled.div`
     outline: none;
     cursor: pointer;
     font-weight: bolder;
+    offset: none;
+    border: none;
 
     @media ${devices.smallMobiles} {
       padding: 10px 22px;

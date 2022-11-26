@@ -2,10 +2,7 @@ import styled from "styled-components";
 import { devices } from "../mediaQueries/breakpoints";
 
 export const InvoiceContainer = styled.div`
-  .closeBtn {
-    display: flex;
-    justify-content: center;
-  }
+ 
 
   .generatePdfButton {
     padding: 12px 26px;
@@ -17,6 +14,9 @@ export const InvoiceContainer = styled.div`
     outline: none;
     cursor: pointer;
     font-weight: bolder;
+    offset: none;
+    border: none;
+
 
     @media ${devices.smallMobiles} {
       padding: 10px 22px;

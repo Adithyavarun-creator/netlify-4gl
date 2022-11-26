@@ -18,5 +18,7 @@
   "placeholdergeneratetag": "Provide a link to generate QR code",
   "errorMessage": "Email/Box selection/Amount field is missing,Please provide all details to make the payment",
   "successMessage1": "Payment of ",
-  "successMessage2":"has been made for "
+  "successMessage2": "has been made for ",
+  "generatePdf": "Generate invoice for your payment",
+  "closeModal": "Close"
 }
