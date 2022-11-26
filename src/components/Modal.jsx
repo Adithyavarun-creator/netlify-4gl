@@ -38,9 +38,7 @@ const Modal = ({ success, setClose, error, email, select, click }) => {
       {error && (
         <ModalContainer>
           <div className="closeBox">
-            <span className="closeIcon" onClick={closeModal}>
-              &#x2716;
-            </span>
+            <MdClose className="closeIcon" onClick={closeModal} />
           </div>
           <div className="successMessage">
             <h1 className="error">{error}</h1>

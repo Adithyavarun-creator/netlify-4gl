@@ -4,7 +4,7 @@
   "qrcode": "QRCode Page",
   "machineSelect": "Select the Washing Machine",
   "payAmount": "Click on the amount to pay in € EUR",
-  "amountToPay": "Amount to pay is",
+  "amountToPay": "Amount to pay is ",
   "payByCreditCard": "Pay the amount via credit card",
   "cardDetails": "Enter Card details below",
   "wasSelected": "was selected",
