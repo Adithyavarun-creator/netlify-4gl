@@ -8,7 +8,7 @@ const QrCode = () => {
   const [url, setUrl] = useState("");
   const [qr, setQr] = useState("");
 
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const GenerateQRCode = () => {
     QRCode.toDataURL(

@@ -5,7 +5,7 @@ import Invoice from "./Invoice";
 import { MdClose } from "react-icons/md";
 
 const Modal = ({ success, setClose, error, email, select, click }) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const closeModal = () => {
     setClose(false);

@@ -159,6 +159,7 @@ export const PaymentContainer = styled.div`
     gap: 14px;
     align-items: center;
     margin-bottom: 20px;
+    justify-content: center;
 
     @media ${devices.smallMobiles} {
       gap: 10px;
@@ -169,7 +170,7 @@ export const PaymentContainer = styled.div`
   .stepName {
     background-color: black;
     border: 1px solid white;
-    padding: 5px 26px;
+    padding: 5px 10px;
     border-radius: 15px;
     text-align: center;
 

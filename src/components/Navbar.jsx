@@ -5,7 +5,7 @@ import {
   MobileNavbar,
   NavigationLink,
 } from "../styles/NavbarStyles";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdClose } from "react-icons/md";
 
@@ -16,7 +16,7 @@ const Navbar = () => {
   const [name, setName] = useState("");
 
   const selectedOption = (e) => {
-    console.log(e.target.value);
+    //console.log(e.target.value);
     const selected = i18n.changeLanguage(e.target.value);
     setSelect(selected);
     setToggle(false);

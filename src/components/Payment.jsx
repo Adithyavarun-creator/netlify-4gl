@@ -8,7 +8,6 @@ import db from "../firebase/firebase";
 import { addDoc, collection, Timestamp } from "firebase/firestore";
 import Spinner from "./Spinner";
 
-
 const inputStyle = {
   iconColor: "#ff4500",
   color: "white",
@@ -40,7 +39,7 @@ const Payment = () => {
   const stripe = useStripe();
   const elements = useElements();
 
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const selectedOption = (e) => {
     const selected = e.target.value;
@@ -81,7 +80,7 @@ const Payment = () => {
     if (paymentResult.error) {
       saveErrorPaymentToBackend();
       setClose(true);
-      setLoading(false)
+      setLoading(false);
       setError(`😡😡😡 ${t("errorMessage")}`);
       window.scrollTo(0, 0);
     } else {
@@ -259,7 +258,6 @@ const Payment = () => {
             click={click}
           />
         )}
-
 
         <div className="workBox">
           <div className="firstStep">
