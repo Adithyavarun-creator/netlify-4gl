@@ -1,10 +1,10 @@
 import React from "react";
 import { jsPDF } from "jspdf";
 import { InvoiceContainer } from "../styles/InvoiceStyles";
-import { t } from "i18next";
 import { useTranslation } from "react-i18next";
 
 const Invoice = ({ email, select, click }) => {
+  console.log(select);
   const { t } = useTranslation();
   const generatePdf = () => {
     const doc = new jsPDF();

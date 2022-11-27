@@ -101,9 +101,6 @@ const Payment = () => {
             "successMessage2"
           )} ${select}`
         );
-        setEmail("");
-        setClick("");
-        setSelect("");
       }
     }
     setLoading(false);
@@ -145,7 +142,6 @@ const Payment = () => {
         <div>
           <img src={LogoImage} alt="" className="logo-image" />
         </div>
-
         <div className="workBox">
           <div className="firstStep">
             <div className="numbering">
@@ -165,7 +161,6 @@ const Payment = () => {
             />
           </div>
         </div>
-
         <div className="workBox">
           <div className="firstStep">
             <div className="numbering">
@@ -211,7 +206,6 @@ const Payment = () => {
             </div>
           )}
         </div>
-
         <div className="workBox">
           <div className="firstStep">
             <div className="numbering">
@@ -260,7 +254,6 @@ const Payment = () => {
             </h1>
           </div>
         </div>
-
         {close && (
           <Modal
             success={success}
@@ -272,7 +265,6 @@ const Payment = () => {
             click={click}
           />
         )}
-
         <div className="workBox">
           <div className="firstStep">
             <div className="numbering">
