@@ -9,6 +9,9 @@ exports.handler = async (event) => {
       amount,
       currency: "eur",
       payment_method_types: ["card"],
+      // automatic_payment_methods: {
+      //   enabled: true,
+      // },
     });
 
     return {

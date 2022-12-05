@@ -20,5 +20,6 @@
   "successMessage1": "Payment of ",
   "successMessage2": "has been made for ",
   "downloadPdf": "Download invoice for your payment",
-  "closeModal": "Close"
+  "closeModal": "Close",
+  "transactions": "Transaction History"
 }

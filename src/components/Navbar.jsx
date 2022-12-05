@@ -36,6 +36,11 @@ const Navbar = () => {
           </NavigationLink>
         </div>
         <div>
+          <NavigationLink to="/transactions" className="linkTitle">
+            Transactions
+          </NavigationLink>
+        </div>
+        <div>
           <select
             className="langSelect"
             value={select.name}
@@ -92,6 +97,14 @@ const Navbar = () => {
               <Link to="/qr-code" className="toLink">
                 <span className="linkName" onClick={() => setToggle(false)}>
                   {t("qrcode")}
+                </span>
+              </Link>
+            </div>
+
+            <div>
+              <Link to="/transactions" className="toLink">
+                <span className="linkName" onClick={() => setToggle(false)}>
+                  Transactions
                 </span>
               </Link>
             </div>

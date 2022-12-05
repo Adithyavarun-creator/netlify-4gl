@@ -20,7 +20,6 @@
   "successMessage1": "Pagamento de ",
   "successMessage2": "foi feito para ",
   "downloadPdf": "Télécharger la facture pour votre paiement",
-  "closeModal": "Perto"
-
-
+  "closeModal": "Perto",
+  "transactions": "Histórico de transações"
 }

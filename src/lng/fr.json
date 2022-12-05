@@ -20,7 +20,6 @@
   "successMessage1": "Paiement de ",
   "successMessage2": "a été fait pour ",
   "downloadPdf": "Télécharger la facture pour votre paiement",
-  "closeModal": "Proche"
-
-
+  "closeModal": "Proche",
+  "transactions": "Historique des transactions"
 }

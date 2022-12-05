@@ -20,5 +20,6 @@
   "successMessage1": "Zahlung von ",
   "successMessage2": "wurde für gemacht ",
   "generatePdf": "Laden Sie die Rechnung für Ihre Zahlung herunter",
-  "closeModal": "Nah dran"
+  "closeModal": "Nah dran",
+  "transactions": "Verlauf der Transaktionen"
 }

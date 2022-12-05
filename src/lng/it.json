@@ -20,5 +20,6 @@
   "successMessage1": "Pagamento di ",
   "successMessage2": "è stato fatto per ",
   "downloadPdf": "Scarica la fattura per il tuo pagamento",
-  "closeModal": "Chiudere"
+  "closeModal": "Chiudere",
+  "transactions": "Cronologia delle transazioni"
 }

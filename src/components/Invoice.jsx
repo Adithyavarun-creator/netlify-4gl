@@ -4,7 +4,6 @@ import { InvoiceContainer } from "../styles/InvoiceStyles";
 import { useTranslation } from "react-i18next";
 
 const Invoice = ({ email, select, click }) => {
-  console.log(select);
   const { t } = useTranslation();
   const generatePdf = () => {
     const doc = new jsPDF();

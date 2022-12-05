@@ -10,20 +10,40 @@ import Spinner from "./Spinner";
 import useWindowSize from "react-use/lib/useWindowSize";
 import Confetti from "react-confetti";
 
+// const inputStyle = {
+//   iconColor: "#ff4500",
+//   color: "white",
+//   fontWeight: "500",
+//   fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
+//   fontSize: "22px",
+//   border: "2px solid black",
+//   fontSmoothing: "antialiased",
+//   ":-webkit-autofill": {
+//     color: "#fce883",
+//   },
+//   "::placeholder": {
+//     color: "#ff4500",
+//     fontSize: "16px",
+//   },
+// };
+
 const inputStyle = {
-  iconColor: "#ff4500",
-  color: "white",
-  fontWeight: "500",
-  fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
-  fontSize: "22px",
-  border: "2px solid black",
-  fontSmoothing: "antialiased",
-  ":-webkit-autofill": {
-    color: "#fce883",
-  },
-  "::placeholder": {
-    color: "#ff4500",
-    fontSize: "16px",
+  iconStyle: "solid",
+  style: {
+    base: {
+      iconColor: "#c4f0ff",
+      color: "#040404",
+      fontWeight: 500,
+      fontFamily: "Roboto, Open Sans, Segoe UI, sans-serif",
+      fontSize: "16px",
+      fontSmoothing: "antialiased",
+      ":-webkit-autofill": { color: "#fce883" },
+      "::placeholder": { color: "#006eff" },
+    },
+    invalid: {
+      iconColor: "#ffc7ee",
+      color: "#ff0000",
+    },
   },
 };
 
@@ -81,6 +101,7 @@ const Payment = () => {
         },
       },
     });
+
     if (paymentResult.error) {
       saveErrorPaymentToBackend();
       setClose(true);
@@ -280,13 +301,14 @@ const Payment = () => {
               <h1 style={{ color: "black" }} className="stepTitle">
                 {t("cardDetails")}
               </h1>
-              <CardElement
+              {/* <CardElement
                 options={{
                   style: {
                     base: inputStyle,
                   },
                 }}
-              />
+              /> */}
+              <CardElement options={inputStyle} />
               <div className="buttonPosition">
                 <button className="paymentButton" onClick={paymentHandler}>
                   {t("payNow")}

@@ -8,7 +8,7 @@ export const ModalContainer = styled.div`
   position: absolute;
   gap: 60px;
   top: 160px;
-  height: 450px;
+  height: 550px;
   flex-direction: column;
   padding: 0 20px;
   border: 1px solid white;
